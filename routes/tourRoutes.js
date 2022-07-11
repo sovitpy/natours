@@ -2,16 +2,6 @@ const express = require('express');
 const router = express.Router();
 const tourController = require('./../controllers/tourController');
 
-// const checkBody = (req, res, next) => {
-//   if (!req.body.name || !req.body.price) {
-//     return res.status(400).json({
-//       status: 'fail',
-//       message: 'Missing name or price',
-//     });
-//   }
-//   next();
-// };
-
 router
   .route('/')
 
@@ -22,6 +12,10 @@ router
 router
   .route('/:id')
 
-  .get(tourController.getTour);
+  .get(tourController.getTour)
+
+  .patch(tourController.updateTour)
+
+  .delete(tourController.deleteTour);
 
 module.exports = router;
